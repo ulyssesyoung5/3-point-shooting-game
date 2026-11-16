@@ -13,7 +13,7 @@ Python 3.10 or newer is recommended.
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 python -m pip install -r requirements.txt
-python game.py
+python main.py
 ```
 
 ## Play in a browser
@@ -26,7 +26,7 @@ To build the browser version locally:
 
 ```bash
 python -m pip install pygbag
-python -m pygbag --build game.py
+python -m pygbag --build main.py
 ```
 
 Pygbag writes the static site to `build/web/`. Serve that directory with a local
