@@ -1,5 +1,5 @@
+import asyncio
 import math
-import sys
 from dataclasses import dataclass
 
 import pygame
@@ -318,16 +318,16 @@ class ShootingGame:
             self.screen.blit(result, result.get_rect(center=(WIDTH // 2, HEIGHT // 2)))
             self.screen.blit(prompt, prompt.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 42)))
 
-    def run(self) -> None:
+    async def run(self) -> None:
         while self.running:
             dt = self.clock.tick(FPS) / 1000
             for event in pygame.event.get():
                 self.handle_event(event)
             self.update(dt)
             self.draw()
+            await asyncio.sleep(0)
         pygame.quit()
-        sys.exit()
 
 
 if __name__ == "__main__":
-    ShootingGame().run()
+    asyncio.run(ShootingGame().run())
